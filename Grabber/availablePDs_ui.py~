@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'availablePDs.ui'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow_AvailablePointDet):
+        MainWindow_AvailablePointDet.setObjectName("MainWindow_AvailablePointDet")
+        MainWindow_AvailablePointDet.resize(433, 316)
+        self.centralwidget = QtWidgets.QWidget(MainWindow_AvailablePointDet)
+        self.centralwidget.setObjectName("centralwidget")
+        self.labelSearch = QtWidgets.QLabel(self.centralwidget)
+        self.labelSearch.setGeometry(QtCore.QRect(30, 30, 46, 10))
+        self.labelSearch.setObjectName("labelSearch")
+        self.plainTextEditSearch = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEditSearch.setGeometry(QtCore.QRect(80, 20, 321, 31))
+        self.plainTextEditSearch.setObjectName("plainTextEditSearch")
+        self.listViewPointDetectors = QtWidgets.QListView(self.centralwidget)
+        self.listViewPointDetectors.setGeometry(QtCore.QRect(30, 70, 371, 201))
+        self.listViewPointDetectors.setObjectName("listViewPointDetectors")
+        MainWindow_AvailablePointDet.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow_AvailablePointDet)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow_AvailablePointDet.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow_AvailablePointDet)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow_AvailablePointDet)
+
+    def retranslateUi(self, MainWindow_AvailablePointDet):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow_AvailablePointDet.setWindowTitle(_translate("MainWindow_AvailablePointDet", "Available Point Detectors"))
+        self.labelSearch.setText(_translate("MainWindow_AvailablePointDet", "Search:"))
+

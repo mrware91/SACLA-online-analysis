@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'availableROIs.ui'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow_AvailablROIs(object):
+    def setupUi(self, MainWindow_AvailablROIs):
+        MainWindow_AvailablROIs.setObjectName("MainWindow_AvailablROIs")
+        MainWindow_AvailablROIs.resize(433, 310)
+        self.centralwidget = QtWidgets.QWidget(MainWindow_AvailablROIs)
+        self.centralwidget.setObjectName("centralwidget")
+        self.listViewROIs = QtWidgets.QListView(self.centralwidget)
+        self.listViewROIs.setGeometry(QtCore.QRect(40, 30, 351, 231))
+        self.listViewROIs.setObjectName("listViewROIs")
+        MainWindow_AvailablROIs.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow_AvailablROIs)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow_AvailablROIs.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow_AvailablROIs)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow_AvailablROIs)
+
+    def retranslateUi(self, MainWindow_AvailablROIs):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow_AvailablROIs.setWindowTitle(_translate("MainWindow_AvailablROIs", "Available ROIs"))
+

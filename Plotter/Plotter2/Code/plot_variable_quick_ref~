@@ -1,0 +1,15 @@
+
+self.data['ROINEW'] /self.data['ROI1']
+
+self.data['xfel_bl_3_st_2_motor_1/position'] 
+self.data['xfel_bl_3_st_2_motor_5/position'] 
+self.data['xfel_bl_3_st_2_motor_6/position'] 
+
+self.data['ROI1'] 
+
+(self.data['xfel_bl_3_lh1_shutter_1_open_valid/status'] >.5)&(self.data['ROINEW'] >500)
+
+(self.data['xfel_bl_3_lh1_shutter_1_open_valid/status'] <.5)&(self.data['ROINEW'] >500)
+(self.data['xfel_bl_3_lh1_shutter_1_open_valid/status'] <.5)
+
+(self.data['xfel_bl_3_tc_bm_1_pd/charge'] >7e-9)

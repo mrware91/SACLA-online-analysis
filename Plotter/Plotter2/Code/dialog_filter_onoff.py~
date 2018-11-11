@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'dialog_filter_onoff.ui'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+
+import plotter
+from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+sys.path.insert(0, '../../dataSaverLoader/')
+if 'hpc' in host_name:
+        import dummyDatabase as Database
+else:        
+        import Database
+
+class Ui_dialog_filter_onoff(QtWidgets.QMainWindow):
+    def setupUi(self, dialog_filter_onoff, mainWindow):
+        self.mainWindow = mainWindow
+
+        # designer generated code
+        dialog_filter_onoff.setObjectName("dialog_filter_onoff")
+        dialog_filter_onoff.resize(632, 260)
+        self.centralwidget = QtWidgets.QWidget(dialog_filter_onoff)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 611, 195))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.lbl_filters = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lbl_filters.setObjectName("lbl_filters")
+        self.verticalLayout.addWidget(self.lbl_filters)
+        self.tbox_filter_onoff = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.tbox_filter_onoff.setObjectName("tbox_filter_onoff")
+        self.verticalLayout.addWidget(self.tbox_filter_onoff)
+        self.lbl_help = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lbl_help.setObjectName("lbl_help")
+        self.verticalLayout.addWidget(self.lbl_help)
+        self.line_2 = QtWidgets.QFrame(self.verticalLayoutWidget)
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.verticalLayout.addWidget(self.line_2)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.lbl_reference = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lbl_reference.setObjectName("lbl_reference")
+        self.verticalLayout_2.addWidget(self.lbl_reference)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.tbox_datastream_reference = QtWidgets.QTextEdit(self.verticalLayoutWidget)
+        self.tbox_datastream_reference.setObjectName("tbox_datastream_reference")
+        self.horizontalLayout.addWidget(self.tbox_datastream_reference)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.btn_update = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_update.setGeometry(QtCore.QRect(520, 210, 80, 16))
+        self.btn_update.setObjectName("btn_update")
+        dialog_filter_onoff.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(dialog_filter_onoff)
+        self.statusbar.setObjectName("statusbar")
+        dialog_filter_onoff.setStatusBar(self.statusbar)
+
+        self.retranslateUi(dialog_filter_onoff)
+        QtCore.QMetaObject.connectSlotsByName(dialog_filter_onoff)
+
+        # populate reference
+        self.tbox_datastream_reference.setReadOnly(True)
+        data = plotter.grabData(self.mainWindow.range_type, self.mainWindow.range_values, self.mainWindow.beamline, self.mainWindow.directory, self.mainWindow.equip)
+        ref_str = ''
+        for key in data:
+                ref_str += "self.data['%s'] \n" %key
+
+        self.tbox_datastream_reference.setText(ref_str)
+        
+        # linking signals to slots
+        self.btn_update.clicked.connect(self.update)
+
+
+
+
+
+###############################################################################################
+# ui class functions
+###############################################################################################
+
+    def update(self):
+        ''' update plot with new filters '''
+        self.mainWindow.refresh_plot = False
+        self.mainWindow.update_plot()
+
+
+        # designer generated function
+    def retranslateUi(self, dialog_filter_onoff):
+        _translate = QtCore.QCoreApplication.translate
+        dialog_filter_onoff.setWindowTitle(_translate("dialog_filter_onoff", "dialog_filter_onoff"))
+        self.lbl_filters.setText(_translate("dialog_filter_onoff", "Filter for subtracted data:"))
+        self.lbl_help.setText(_translate("dialog_filter_onoff", "Use reference below to populate filter with python code.  Only accepts boolean mask."))
+        self.lbl_reference.setText(_translate("dialog_filter_onoff", "reference \n and = & \n or  = |"))
+        self.btn_update.setText(_translate("dialog_filter_onoff", "update"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Plot = QtWidgets.QMainWindow()
+    ui = Ui_dialog_filter_onoff()
+    ui.setupUi(Plot)
+    Plot.show()
+    sys.exit(app.exec_())
+

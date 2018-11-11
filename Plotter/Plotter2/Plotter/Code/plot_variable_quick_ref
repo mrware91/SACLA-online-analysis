@@ -1,0 +1,26 @@
+711773
+
+self.data['ROINEW'] /self.data['ROIOUTSIDE']
+
+self.data['xfel_bl_3_st_2_motor_1/position'] 
+self.data['xfel_bl_3_st_2_motor_5/position'] 
+self.data['xfel_bl_3_st_2_motor_6/position'] 
+
+(self.data['xfel_bl_3_lh1_shutter_1_open_valid/status'] >.5)&(self.data['ROINEW'] >100)
+
+(self.data['xfel_bl_3_lh1_shutter_1_open_valid/status'] <.5)&(self.data['ROINEW'] >100)
+
+(self.data['xfel_bl_3_tc_bm_1_pd/charge'] >7e-9)
+
+(self.data['xfel_bl_3_st_2_pd_laser_fitting_peak/voltage'] > . 45)
+self.data['xfel_bl_3_st_1_bm_1_pd/charge'] 
+self.data['xfel_bl_3_tc_bm_2_pd/charge'] 
+self.data['ROINOISE'] /self.data['ROINEW']
+
+correlation plot:
+self.data['xfel_bl_3_st_1_bm_1_pd/charge']
+self.data['ROINEW']
+
+horizontal motor: 
+self.data['xfel_bl_3_st_2_motor_5/position'] 
+horizontal
