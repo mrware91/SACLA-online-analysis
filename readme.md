@@ -7,7 +7,7 @@ This code is provided free of use. The only restriction is that its use must be 
 1. Access xu-bl3-anapc01 from the opcon computers via 
 ```shell
 ssh -Y mrware@xu-bl3-anapc01
-PW: c7PKCRW3
+PW: #######
 ```
 2. Run the Viewer gui. Located in /home/mrware/ANAPC/online/Viewer. Run 
 ```shell
